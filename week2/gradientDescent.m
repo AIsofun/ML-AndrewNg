@@ -8,6 +8,7 @@ m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
 
 sum = 0;
+
 for iter = 1:num_iters
 
     % ====================== YOUR CODE HERE ======================
@@ -18,10 +19,21 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
     for i = 1:m
-      h = theta' * X(i,:)';
-      sum = sum + (h - y(i)) * X(i, iter);
+      h = X(i,:)* theta;
+      %disp(X(i, :));
+      %disp(theta);
+      %disp(h);
+      %pause;
+      sum = sum + (h - y(i));
+      %disp(sum);
+      %pause;
     endfor
-    theta(iter) = theta(iter) - (alpha / m) * (sum);
+    
+    theta(1) = theta(1) - (alpha / m) * sum;
+    theta(2) = theta(2) - (alpha / m) * sum * X(i, 2);
+    sum = 0;
+    disp(theta);
+    %pause;
 
 
 

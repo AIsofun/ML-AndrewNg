@@ -83,6 +83,7 @@ pause;
 
 fprintf('\nRunning Gradient Descent ...\n')
 % run gradient descent
+theta = [-1 ; 2];
 theta = gradientDescent(X, y, theta, alpha, iterations);
 
 % print theta to screen
